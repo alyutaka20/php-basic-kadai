@@ -3,36 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PHP基礎編</title>
+  <title>Document</title>
 </head>
 <body>
-<p>
-    <?php
-    $num= [15, 4, 18, 23, 10];
-
-    echo '昇順にソートします。'.'<br>';
- 
-    sort($num, SORT_NATURAL | SORT_FLAG_CASE);
-    foreach ($num as $a) {
-    
-    echo $a. '<br>';
-     }
-    ?>
-</p>
-<p>
 <?php
-    $num= [15, 4, 18, 23, 10];
+$nums = [15, 4, 18, 23, 10];
 
-    echo '降順にソートします。'.'<br>';
- 
-    rsort($num, SORT_NATURAL | SORT_FLAG_CASE);
-    foreach ($num as $a) {
-    echo $a. '<br>';
-     }
-    ?>
+function sort_2way($array, $order){
+    if($order === true){
+        echo "降順にソートします。<br>";
+        rsort($array);
+    } else {
+        echo "昇順にソートします。<br>";
+        sort($array); 
+    }
 
-</p>
+    foreach ($array as $num) {
+        echo $num . "<br>";
+    }
+    echo "<br>";
+}
 
+$order = false; 
+sort_2way($nums, $order);
 
+$order = true; 
+sort_2way($nums, $order);
+?>
 
+</body>
 </html>

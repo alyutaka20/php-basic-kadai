@@ -3,33 +3,71 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PHP基礎編</title>
+  <title>Document</title>
 </head>
 <body>
+<body>
+  <p>
+  <body>
   <p>
     <?php
     //クラスを定義する
-    class Product {
-      //プロパティを定義する
-      public $name;
-      //publicにする事で{}より外から(クラス内からでも外から)でも$nameに対していれるものを変更できる
-      //privateにするとできない
-      // ここに入れた変数や関数(メソッド)などがまとまった物をオブジェクトという
-      // オブジェクトの中に設定された関数をメソッドという。
+    class Food
+    {
+      // プロパティを定義する
+      private $name;
+      private $price;
 
+      // コンストラクタを定義する
+      public function __construct(string $name, int $price)
+      {
+        $this->name = $name;
+        $this->price = $price;
+      }
+
+      // メソッドを定義する
+      public function show_price()
+      {
+        echo $this->price . '<br>';
+      }
     }
 
-    //インスタンス化する(上記のオブジェクトを使えるようにする)
-    $shampoo = new Product();
+    //インスタンス化する
+    $food = new Food('potato', 250);
+    // インスタンス$foodの価格を出力する
+    print_r($food);
+    $food->show_price();
+    
 
-    //プロパティにアクセスし、値を代入する(オブジェクトの中の変数に対して値を代入する)
-    $shampoo->name ='シャンプー';
+    //クラスを定義する
+    class Animal
+    {
+      private $name;
+      private $height;
+      private $weight;
 
-    //プロパティにアクセスし、値を出力する
-        echo $shampoo->name;
+      // コンストラクタを定義する
+      public function __construct(string $name, int $height, int $weight)
+      {
+        $this->name = $name;
+        $this->height = $height;
+        $this->weight = $weight;
+      }
+
+      // メソッドを定義する
+      public function show_height()
+      {
+        echo $this->height . '<br>';
+      }
+    }
+
+    //インスタンス化する
+    $animal = new Animal('dog', 60, 5000);
+    // インスタンス$animalの高さを出力する
+    print_r($animal);
+    $animal->show_height();
 
     ?>
-
   </p>
 </body>
 </html>
